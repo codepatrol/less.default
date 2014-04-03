@@ -1,0 +1,42 @@
+// FOOTERSTICK
+
+@footerHeight: @distanceDefault * 5;
+
+html {
+  height: 100%;
+}
+
+// without wrapper
+body {
+  .relative;
+  min-height: 100%;
+}
+
+// including wrapper
+//body {
+//  height: 100%;
+//}
+//
+//#wrapper {
+//  .relative;
+//  min-height: 100%;
+//}
+
+#main {
+  padding-bottom: @footerHeight;
+}
+
+footer {
+  .absolute;
+  .dimension(@footerHeight, 100%);
+  .position(bottomLeft);
+}
+
+// workaround ie7
+* html body {
+  height: 100%;
+}
+
+* html #footer {
+  bottom: -1px;
+}

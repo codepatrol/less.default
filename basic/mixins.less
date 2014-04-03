@@ -1,0 +1,243 @@
+
+// mixins.less
+//  + This file includes all mixins which should be used in all
+//    other less-files.
+//  + Feel free to add more if necessary.
+
+
+// MISCELLANEOUS ()----------------------------------------------------------------
+
+
+
+
+// BACKGROUND ()-------------------------------------------------------------------
+.bgPos(@y) {
+  background-position: 0 @y;
+}
+
+.bgPos(@x: 0, @y: 0) {
+  background-position: @x @y;
+}
+
+.bgSize(@x, @y: @x) {
+  background-size: @x @y;
+}
+
+
+
+// BORDER ()-----------------------------------------------------------------------
+.borderDefault(@color: @colorBorder, @width: 1px) {
+  border: @width solid @color;
+}
+
+.border(top, @color: @colorBorder, @width: 1px) {
+  border-top: @width solid @color;
+}
+
+.border(right, @color: @colorBorder, @width: 1px) {
+  border-right: @width solid @color;
+}
+
+.border(bottom, @color: @colorBorder, @width: 1px) {
+  border-bottom: @width solid @color;
+}
+
+.border(left, @color: @colorBorder, @width: 1px) {
+  border-left: @width solid @color;
+}
+
+.border(horizontal, @color: @colorBorder, @widthTop: 1px, @widthBottom: @widthTop) {
+  .borderDefault(@color);
+  border-width: @widthTop 0 @widthBottom 0;
+}
+
+.border(vertical, @color: @colorBorder, @widthRight: 1px, @widthLeft: @widthRight) {
+  .borderDefault(@color);
+  border-width: 0 @widthRight 0 @widthLeft;
+}
+
+
+
+// DIMENSION ()--------------------------------------------------------------------
+.dimension(@height, @width: @height) {
+  height: @height;
+  width: @width;
+}
+
+
+
+//FLEXBOX ()-----------------------------------------------------------------------
+.flexBox(@behave: ~'flex') {
+  display: box;                                       // OLD syntax from 2009
+  display: -webkit-box;                               // OLD - iOS 6-, Safari 3.1-6
+  display: flexbox;                                   // unofficial syntax from 2011
+  display: ~'-webkit-@{behave}';                      // NEW - Chrome  and may be iOS7?
+  display: -ms-box;                                   // MS
+  display: @behave;                                   // NEW W3C
+}
+
+.flexItem (@flex: 1, @shrink: ~'', @basis: ~'' ){
+  -webkit-box-flex: @flex @shrink @basis;             // OLD - iOS 6-, Safari 3.1-6
+  -webkit-flex: @flex @shrink @basis;                 // Chrome
+  -ms-flex: @flex @shrink @basis;                     // MS
+  flex: @flex @shrink @basis;                         // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
+.flexFlow(@row: row, @wrap: wrap) {
+  -webkit-flex-flow: @row @wrap;
+  flex-flow: @row @wrap;
+}
+
+.justifyContent(@justify-content) {
+  -webkit-justify-content: @justify-content;
+  -webkit-box-pack: @justify-content;
+  -ms-flex-pack: @justify-content;
+  justify-content: @justify-content;
+}
+
+.flexOrder(@order) {
+  -webkit-box-ordinal-group: @order;                  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-ordinal-group: @order;                     /* OLD - Firefox 19- */
+  -ms-flex-order: @order;                             /* TWEENER - IE 10 */
+  -webkit-order: @order;                              /* NEW - Chrome */
+  order: @order;
+}
+
+
+
+// FONT ()-------------------------------------------------------------------------
+.font(@size: @fontSizeDefault, @weight: normal, @lineHeight: @lineHeightDefault) {
+  font-size: @size;
+  font-weight: @weight;
+  line-height: @lineHeight;
+}
+
+
+
+// GRADIENTS ()--------------------------------------------------------------------
+.gradientLinearSimple(@start, @end) {
+  background: @end;
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@start), color-stop(100%,@end));
+  background: -webkit-linear-gradient(top, @start 0%,@end 100%);
+  background: -o-linear-gradient(top, @start 0%,@end 100%);
+  background: -ms-linear-gradient(top, @start 0%,@end 100%);
+  background: linear-gradient(to bottom, @start 0%,@end 100%);
+}
+
+
+
+// MARGIN ()-----------------------------------------------------------------------
+.marginHorizontal(@distanceLeft, @distanceRight: @distanceLeft) {
+  margin-right: @distanceRight;
+  margin-left: @distanceLeft;
+}
+
+.marginVertical(@distanceTop, @distanceBottom: @distanceTop) {
+  margin-top: @distanceTop;
+  margin-bottom: @distanceBottom;
+}
+
+
+
+// PADDING ()----------------------------------------------------------------------
+.paddingHorizontal(@distanceLeft, @distanceRight: @distanceLeft) {
+  padding-right: @distanceRight;
+  padding-left: @distanceLeft;
+}
+
+.paddingVertical(@distanceTop, @distanceBottom: @distanceTop) {
+  padding-top: @distanceTop;
+  padding-bottom: @distanceBottom;
+}
+
+
+
+// POSITIONING ()------------------------------------------------------------------
+.position(topLeft, @y: 0, @x: @y, @position: absolute) {
+  position: @position;
+  top: @y;
+  left: @x;
+}
+
+.position(topRight, @y: 0, @x: @y, @position: absolute) {
+  position: @position;
+  top: @y;
+  right: @x;
+}
+
+.position(bottomRight, @y: 0, @x: @y, @position: absolute) {
+  position: @position;
+  bottom: @y;
+  right: @x;
+}
+
+.position(bottomLeft, @y: 0, @x: @y, @position: absolute) {
+  position: @position;
+  bottom: @y;
+  left: @x;
+}
+
+.position(center, @height, @width, @position: absolute) {
+  height: @height;
+  margin-top: -@height / 2;
+  margin-left: -@width / 2;
+  position: @position;
+  top: 50%;
+  left: 50%;
+  width: @width;
+}
+
+.position(centerVertical, @height, @position: absolute) {
+  height: @height;
+  margin-top: -@height / 2;
+  position: @position;
+  top: 50%;
+}
+
+
+
+// PSEUDO ()-----------------------------------------------------------------------
+.pseudo(@content: '', @display: block) {
+  content: @content;
+  display: @display;
+}
+
+
+
+// RADIUS ()-----------------------------------------------------------------------
+.borderRadius(@radius: 0) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+
+
+// ROTATE ()-----------------------------------------------------------------------
+.rotate (@angle) {
+  -ms-transform: rotate(@angle);
+  -webkit-transform: rotate(@angle);
+  -o-transform: rotate(@angle);
+  -moz-transform: rotate(@angle);
+  transform: rotate(@angle);
+}
+
+
+
+// SPRITE ()-----------------------------------------------------------------------
+
+
+
+// TRANSITION ()-------------------------------------------------------------------
+.transition(@property, @duration, @timing: ease) {
+  -moz-transition: @property @duration @timing;
+  -webkit-transition: @property @duration @timing;
+  transition: @property @duration @timing;
+}
+
+.transition(@arguments) {
+  -moz-transition: @arguments;
+  -webkit-transition: @arguments;
+  transition: @arguments;
+}

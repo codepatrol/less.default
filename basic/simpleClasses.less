@@ -1,0 +1,360 @@
+
+// simpleClasses.less
+//  + This file includes all classes which should be available in both
+//    the other less-files and the jsp-files.
+//  + Feel free to add more if necessary but keep it simple and
+//    and do not add any mixins here.
+
+
+// MISCELLANEOUS ()----------------------------------------------------------------
+.bgBox() {
+  background: @bgBase;
+}
+
+.noBg() {
+  background: transparent;
+}
+
+.pointer() {
+  cursor: pointer;
+}
+
+.pointerHelp() {
+  cursor: help;
+}
+
+.pointerDefault() {
+  cursor: default;
+}
+
+
+// BORDER ()-----------------------------------------------------------------------
+.border() {
+  .borderDefault;
+}
+
+.dBorder() {
+  .borderDefault(@colorBorder, 2px);
+}
+
+.noBorder() {
+  border: 0;
+}
+
+
+
+// BORDERBOX ()--------------------------------------------------------------------
+.borderBox() {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+// DIMENSION ()--------------------------------------------------------------------
+.autoHeight() {
+  height: auto;
+}
+
+
+
+// DISPLAY ()----------------------------------------------------------------------
+.block() {
+  display: block;
+}
+
+.inline() {
+  display: inline;
+}
+
+.inlineBlock() {
+  display: inline-block;
+  *zoom: 1; *display: inline;
+}
+
+.none() {
+  display: none;
+}
+
+
+
+// FLOAT ()------------------------------------------------------------------------
+.clear() {
+  clear: both;
+}
+
+.left() {
+  float: left;
+}
+
+.right() {
+  float: right;
+}
+
+.clearRight() {
+  clear: right;
+}
+
+
+
+// FONT ()-------------------------------------------------------------------------
+.fontNormal() {
+  font-family: @fontDefault;
+}
+
+
+
+// LISTS ()------------------------------------------------------------------------
+.dList() {
+  list-style-type: disc;
+  padding-left: @distanceIndent;
+}
+
+.oList() {
+  list-style-type: decimal;
+  padding-left: @distanceIndent;
+}
+
+
+
+// MARGIN ()-----------------------------------------------------------------------
+.dMargin() {
+  margin: @distanceDouble;
+}
+
+.dMarginTop() {
+  margin-top: @distanceDouble;
+}
+
+.dMarginRight() {
+  margin-right: @distanceDouble;
+}
+
+.dMarginBottom() {
+  margin-bottom: @distanceDouble;
+}
+
+.dMarginLeft() {
+  margin-left: @distanceDouble;
+}
+
+.dMarginHorizontal() {
+  margin-right: @distanceDouble;
+  margin-left: @distanceDouble;
+}
+
+.dMarginVertical() {
+  margin-top: @distanceDouble;
+  margin-bottom: @distanceDouble;
+}
+
+.hMarginTop() {
+  margin-top: @distanceHalf;
+}
+
+.hMarginBottom() {
+  margin-bottom: @distanceHalf;
+}
+
+.hMarginLeft() {
+  margin-left: @distanceHalf;
+}
+
+.margin() {
+  margin: @distanceDefault;
+}
+
+.marginAuto() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.marginTop() {
+  margin-top: @distanceDefault;
+}
+
+.marginRight() {
+  margin-right: @distanceDefault;
+}
+
+.marginBottom() {
+  margin-bottom: @distanceDefault;
+}
+
+.marginLeft() {
+  margin-left: @distanceDefault;
+}
+
+.marginHorizontal() {
+  margin-right: @distanceDefault;
+  margin-left: @distanceDefault;
+}
+
+.marginVertical() {
+  margin-top: @distanceDefault;
+  margin-bottom: @distanceDefault;
+}
+
+.noMargin() {
+  margin: 0;
+}
+
+
+
+// PADDING ()----------------------------------------------------------------------
+.noPadding() {
+  padding: 0;
+}
+
+.padding() {
+  padding: @distanceDefault;
+}
+
+.paddingTop() {
+  padding-top: @distanceDefault;
+}
+
+.paddingRight() {
+  padding-right: @distanceDefault;
+}
+
+.paddingBottom() {
+  padding-bottom: @distanceDefault;
+}
+
+.paddingLeft() {
+  padding-left: @distanceDefault;
+}
+
+.paddingHorizontal() {
+  padding-right: @distanceDefault;
+  padding-left: @distanceDefault;
+}
+
+.paddingVertical() {
+  padding-top: @distanceDefault;
+  padding-bottom: @distanceDefault;
+}
+
+.dPadding() {
+  padding: @distanceDouble;
+}
+
+.dPaddingVertical() {
+  padding-top: @distanceDouble;
+  padding-bottom: @distanceDouble;
+}
+
+.dPaddingHorizontal() {
+  padding-right: @distanceDouble;
+  padding-left: @distanceDouble;
+}
+
+.dPaddingRight() {
+  padding-right: @distanceDouble;
+}
+
+.dPaddingBottom() {
+  padding-bottom: @distanceDouble;
+}
+
+.dPaddingLeft() {
+  padding-left: @distanceDouble;
+}
+
+.hPadding() {
+  padding: @distanceHalf;
+}
+
+.hPaddingTop() {
+  padding-top: @distanceHalf;
+}
+
+.hPaddingRight() {
+  padding-right: @distanceHalf;
+}
+
+.hPaddingBottom() {
+  padding-bottom: @distanceHalf;
+}
+
+.hPaddingLeft() {
+  padding-left: @distanceHalf;
+}
+
+
+
+// POSITIONING ()------------------------------------------------------------------
+.absolute() {
+  position: absolute;
+}
+
+.fixed() {
+  position: fixed;
+}
+
+.relative() {
+  position: relative;
+}
+
+.static() {
+  position: static;
+}
+
+
+
+// OVERFLOW ()---------------------------------------------------------------------
+.overAuto() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overHidden() {
+  overflow: hidden;
+}
+
+.overScroll() {
+  overflow: scroll;
+}
+
+.overVisible() {
+  overflow: visible;
+}
+
+
+
+// TEXT ()-------------------------------------------------------------------------
+.bold() {
+  font-weight: bold;
+}
+
+.listDisc() {
+  list-style-type: disc;
+}
+
+.textCenter() {
+  text-align: center;
+}
+
+.textJustify() {
+  text-align: justify;
+}
+
+.textLeft() {
+  text-align: left;
+}
+
+.textRight() {
+  text-align: right;
+}
+
+.textEllipsis() {
+  .overHidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uppercase() {
+  text-transform: uppercase;
+}
